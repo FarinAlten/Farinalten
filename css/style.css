@@ -1,6 +1,6 @@
 body {
     font-family: 'Helvetica', 'Arial', 'Verdana', sans-serif;
-    color: black;
+    color: #222;
     background-color: white;
     margin: 0px;
     margin-top: 40px;
@@ -30,7 +30,7 @@ nav {
 .logo {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #fff; 
+    color: #222; 
     margin-right: 20px;
     text-transform: uppercase;
     display: flex;
@@ -62,7 +62,7 @@ nav {
     padding: 10px 20px;
     border-radius: 10px;
     text-decoration: none;
-    color: #fff; 
+    color: #222; 
     font-weight: 600;
     white-space: nowrap;
 }
@@ -91,13 +91,13 @@ nav {
 
 .headerbox .title { 
     font-size: 160%;
-    color: white;
+    color: #222;
 
 }
 
 .headerbox .headersubtitle {
     font-size: 100%;
-    color: white;
+    color: #222;
 }
 
 .textlink {
@@ -132,13 +132,13 @@ nav {
     margin: 0 0 10px 0;
     font-size: 1.5em;
     font-weight: 600;
-    color: white;
+    color: #222;
 }
 
 .subtitle {
     margin: 0;
     font-size: 1em;
-    color: white;
+    color: #222;
 }
 
 .button {
