@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/style.css" rel="stylesheet">
-    <title> Blog - FarinAlten</title>
-    		<link rel="icon" href="../fav-icon.png" type="image/x-icon">
-		<link rel="shortcut icon" href="../fav-icon.png" type="image/x-icon">
+    <title>Blog - FarinAlten</title>
+    <link rel="icon" href="../fav-icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../fav-icon.png" type="image/x-icon">
 </head>
 <body>
     <nav>
@@ -29,28 +29,38 @@
            </ul>
 </nav>
     <div class="content">
-	 <div class="headerbox">
-        		<a class="title">Blog</a>
-				<p class="headersubtitle"><br>Here are some blog post about me and my lifestyle!</p>
+        <div class="headerbox">
+            <span class="title">Blog</span>
+            <p class="headersubtitle">
+                <br>Read my latest articles about apps, Apple Watch faces and more.<br><br>
+                <i>All posts are written by me and reflect my personal experience.</i>
+            </p>
+        </div>
+        <div class="gallery">
+            <div class="Box" onclick="window.location.href ='./blogposts/favorite-apps.html'">
+                <img class="gallery-img" src="../img/apps-preview.png" alt="Favorite Apps Preview" />
+                <h3 class="title">My Favorite Apps</h3>
+                <p class="subtitle">
+                    Discover the apps I use every day.<br><br>
+                    Tips, tricks and recommendations!
+                </p>
+            </div>
+            <div class="Box" onclick="window.location.href ='./blogposts/apple-watch-faces.html'">
+                <img class="gallery-img" src="../img/watchfaces-preview.png" alt="Apple Watch Faces Preview" />
+                <h3 class="title">Apple Watch Faces</h3>
+                <p class="subtitle">
+                    My favorite Apple Watch faces.<br><br>
+                    Personal style and useful complications.
+                </p>
+            </div>
+            <!-- Weitere Blogposts als Box -->
+        </div>
     </div>
-    <div class="Box" onclick="window.location.href ='../../websites/blog-posts/blogpost2.html'">
-        <h3 class="title">Article</h3>
-			 <p class="subtitle">Here are my favorite Apple Watch faces</p>
-    </div>
-    <div class="Box" onclick="window.location.href ='../../websites/blog-posts/blogpost3.html'">
-        <h3 class="title">Article</h3>
-			 <p class="subtitle">My favorite Android Apps</p>
-    </div>
-    <div class="Box" onclick="window.location.href ='../../websites/blog-posts/blogpost4.html'">
-        <h3 class="title">Article</h3>
-			 <p class="subtitle">My favorite iPhone Apps</p>
-    </div>
-    </div>
-        <footer>
-			© 2024 Farin Altenhöner  <br> |
-			<a href="../websites/legal.html">Legal Info</a> | 
-			<a href="../websites/contact.html">Contact</a>
-		</footer>
+    <footer>
+        © 2025 Farin Altenhöner  <br> |
+        <a href="../websites/legal.html">Legal Info</a> | 
+        <a href="../websites/contact.html">Contact</a>
+    </footer>
 </body>
 <script>
 		document.addEventListener("DOMContentLoaded", () => {
