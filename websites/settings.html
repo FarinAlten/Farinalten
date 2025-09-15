@@ -31,26 +31,30 @@
            </ul>
 </nav>
 <div class="content">
-			<div class="headerbox">
-        		<a class="title">Settings</a>
-    	    </div>
+    <div class="headerbox">
+        <a class="title">Settings</a>
+    </div>
+    <div class="gallery">
         <div class="Box">
             <h3 class="title">Sorry,</h3>
-            <p class="subtitle"> this website is in work! I hope I can release it in the next couple of weeks! 😅 </p>
+            <p class="subtitle">this website is in work! I hope I can release it in the next couple of weeks! 😅</p>
         </div>
-            <div class="box">
-                <h3 class="title">Theme</h3>
+        <div class="Box">
+            <h3 class="title">Theme</h3>
+            <form id="theme-form">
                 <input type="radio" id="theme-auto" name="theme-preference" value="auto">
-                <label for="theme-auto">auto (systemstandard)</label><br>
+                <label for="theme-auto">Auto (Systemstandard)</label><br>
                 <input type="radio" id="theme-light" name="theme-preference" value="light">
-                <label for="theme-light">light</label><br>
+                <label for="theme-light">Light</label><br>
                 <input type="radio" id="theme-dark" name="theme-preference" value="dark">
-                <label for="theme-dark">dark</label>
-            </div>
-           <div class="Box" onclick="window.location.href ='../home.html'">
-        		<h3 class="title">Clear Coockies </h3>
-        		<p class="subtitle">The website will reload without coockies</p>
-			</div>
+                <label for="theme-dark">Dark</label>
+            </form>
+        </div>
+        <div class="Box" onclick="window.location.href ='../home.html'">
+            <h3 class="title">Clear Cookies</h3>
+            <p class="subtitle">The website will reload without cookies</p>
+        </div>
+    </div>
 </div>
 <footer>
     © 2025 Farin Altenhöner <br>| 
@@ -68,11 +72,7 @@
                 document.documentElement.setAttribute("data-theme", "light");
             } else {
                 // auto: systemstandard
-                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-                    document.documentElement.setAttribute("data-theme", "dark");
-                } else {
-                    document.documentElement.setAttribute("data-theme", "light");
-                }
+                document.documentElement.removeAttribute("data-theme");
             }
         }
 
@@ -114,6 +114,36 @@
                     setCookie("theme-preference", e.target.value, 365);
                 });
             });
+
+            // Optional: Clear Cookies Button
+            const clearBox = document.querySelector('.Box[onclick]');
+            if (clearBox) {
+                clearBox.addEventListener('click', () => {
+                    setCookie("theme-preference", "", -1);
+                    location.reload();
+                });
+            }
         });
+
+        // Theme auf allen Seiten anwenden
+        (function() {
+            const savedTheme = (function() {
+                const nameEQ = "theme-preference=";
+                const ca = document.cookie.split(';');
+                for(let i=0;i < ca.length;i++) {
+                    let c = ca[i];
+                    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+                }
+                return null;
+            })() || "auto";
+            if (savedTheme === "dark") {
+                document.documentElement.setAttribute("data-theme", "dark");
+            } else if (savedTheme === "light") {
+                document.documentElement.setAttribute("data-theme", "light");
+            } else {
+                document.documentElement.removeAttribute("data-theme");
+            }
+        })();
     </script>
 </html>
