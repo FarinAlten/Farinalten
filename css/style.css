@@ -33,7 +33,7 @@ nav {
     font-size: 2.1em;
     font-weight: 800;
     color: #222;
-    margin-right: 24px;
+    margin-right: 7px;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     background: linear-gradient(120deg, #e0e7ef 60%, #f8fafc 100%);
@@ -55,7 +55,7 @@ nav {
 
 .nav-item {
     flex: 0 0 auto;
-    margin: 0 10px;
+    margin: 0 7px;
 }
 
 .navbar-nav a {
