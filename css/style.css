@@ -16,14 +16,16 @@ nav {
     position: fixed;
     width: 96%;
     left: 2%;
+    right: auto;
+    /* horizontal scroll only */
+    overflow-x: auto;
+    overflow-y: hidden;
     top: 0;
     z-index: 1000;
     height: 75px;
     display: flex;
     align-items: center;
     padding: 0 32px;
-    overflow-x: auto;
-    white-space: nowrap;
     margin-bottom: 0;
 }
 
@@ -545,8 +547,18 @@ button.clear {
     background: linear-gradient(135deg, rgba(52,152,219,0.25) 0%, rgba(52,152,219,0.45) 100%) !important;
     color: #fff !important;
 }
-}
 [data-theme="light"] button.clear {
     background: linear-gradient(135deg, rgba(52,152,219,0.25) 0%, rgba(52,152,219,0.45) 100%) !important;
     color: #fff !important;
+}
+
+/* Responsive: Auf kleinen Geräten volle Breite */
+@media (max-width: 700px) {
+    nav {
+        width: 100%;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        margin-bottom: 0;
+    }
 }
