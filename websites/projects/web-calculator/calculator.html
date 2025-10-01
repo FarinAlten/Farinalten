@@ -34,56 +34,143 @@
 	</nav>
 <div class="content">
  <div class="headerbox">
-        		<a class="title">Calcify</a>
-				<p class="headersubtitle"><br><b>Note:</b> This project is still in the works! You might experience sone bugs and unfinished features!</p>
+    <a class="title">Calcify</a>
+    <p class="headersubtitle"><br><b>Note:</b> This project is still in the works! You might experience some bugs and unfinished features!</p>
+ </div>
+ <div class="calculator">
+    <div class="calc-header">
+        <button id="mode-toggle" class="mode-toggle" onclick="toggleMode()">Scientific Mode</button>
     </div>
-		<div class="calculator">
-    		<input type="text" id="display" disabled>
-    		<div class="buttons">
-       		<button onclick="clearDisplay()" class="clear">C</button>
-       		<button onclick="deleteLast()" class="delete">DEL</button>
-        		<button onclick="appendToDisplay('/')">/</button>
-        		<button onclick="appendToDisplay('*')">*</button>
-        		<button onclick="appendToDisplay('7')">7</button>
-        		<button onclick="appendToDisplay('8')">8</button>
-        		<button onclick="appendToDisplay('9')">9</button>
-        		<button onclick="appendToDisplay('-')">-</button>
-        		<button onclick="appendToDisplay('4')">4</button>
-        		<button onclick="appendToDisplay('5')">5</button>
-        		<button onclick="appendToDisplay('6')">6</button>
-        		<button onclick="appendToDisplay('+')">+</button>
-        		<button onclick="appendToDisplay('1')">1</button>
-        		<button onclick="appendToDisplay('2')">2</button>
-        		<button onclick="appendToDisplay('3')">3</button>
-        		<button onclick="calculate()" class="calculate">=</button>
-        		<button onclick="appendToDisplay('0')" class="zero">0</button>
-        		<button onclick="appendToDisplay('.')">.</button>
-    	</div>
+    <input type="text" id="display" disabled>
+    <div class="buttons" id="standard-buttons">
+        <button onclick="clearDisplay()" class="clear">C</button>
+        <button onclick="deleteLast()" class="delete">DEL</button>
+        <button onclick="appendToDisplay('/')">÷</button>
+        <button onclick="appendToDisplay('*')">×</button>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('-')">−</button>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('+')">+</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="calculate()" class="calculate">=</button>
+        <button onclick="appendToDisplay('0')" class="zero">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+    </div>
+    <div class="buttons scientific-buttons" id="scientific-buttons" style="display:none;">
+        <button onclick="appendToDisplay('(')">(</button>
+        <button onclick="appendToDisplay(')')">)</button>
+        <button onclick="appendToDisplay('Math.PI')">π</button>
+        <button onclick="appendToDisplay('Math.E')">e</button>
+        <button onclick="appendToDisplay('**')">xʸ</button>
+        <button onclick="appendToDisplay('Math.sqrt(')">√</button>
+        <button onclick="appendToDisplay('Math.abs(')">abs</button>
+        <button onclick="appendToDisplay('Math.exp(')">exp</button>
+        <button onclick="appendToDisplay('Math.sin(')">sin</button>
+        <button onclick="appendToDisplay('Math.cos(')">cos</button>
+        <button onclick="appendToDisplay('Math.tan(')">tan</button>
+        <button onclick="appendToDisplay('Math.asin(')">asin</button>
+        <button onclick="appendToDisplay('Math.acos(')">acos</button>
+        <button onclick="appendToDisplay('Math.atan(')">atan</button>
+        <button onclick="appendToDisplay('Math.log10(')">log</button>
+        <button onclick="appendToDisplay('Math.log(')">ln</button>
+        <button onclick="appendToDisplay('1/')">1/x</button>
+        <button onclick="appendToDisplay('%')">%</button>
+        <button onclick="appendToDisplay('Math.floor(')">floor</button>
+        <button onclick="appendToDisplay('Math.ceil(')">ceil</button>
+        <button onclick="appendToDisplay('Math.round(')">round</button>
+    </div>
+</div>
+</div>
 		</div>
 		</div>
 		<script>
-        function clearDisplay() {
-            document.getElementById('display').value = '';
-        }
+function clearDisplay() {
+    document.getElementById('display').value = '';
+}
 
-        function deleteLast() {
-            let display = document.getElementById('display').value;
-            document.getElementById('display').value = display.slice(0, -1);
-        }
+function deleteLast() {
+    let display = document.getElementById('display').value;
+    document.getElementById('display').value = display.slice(0, -1);
+}
 
-        function appendToDisplay(value) {
-            document.getElementById('display').value += value;
-        }
+function appendToDisplay(value) {
+    document.getElementById('display').value += value;
+}
 
-        function calculate() {
-            let display = document.getElementById('display').value;
-            try {
-                document.getElementById('display').value = eval(display);
-            } catch (e) {
-                document.getElementById('display').value = 'Error';
-            }
-        }
-		if ('serviceWorker' in navigator) {
+function calculate() {
+    let display = document.getElementById('display').value;
+    try {
+        // Prozent-Operator ersetzen
+        display = display.replace(/(\d+(\.\d+)?)%/g, '($1/100)');
+        // eslint-disable-next-line no-eval
+        let result = eval(display);
+        document.getElementById('display').value = result;
+    } catch (e) {
+        document.getElementById('display').value = 'Error';
+    }
+}
+
+function toggleMode() {
+    const sci = document.getElementById('scientific-buttons');
+    const btn = document.getElementById('mode-toggle');
+    if (sci.style.display === "none") {
+        sci.style.display = "grid";
+        btn.classList.add('active');
+        btn.textContent = "Standard Mode";
+    } else {
+        sci.style.display = "none";
+        btn.classList.remove('active');
+        btn.textContent = "Scientific Mode";
+    }
+}
+
+// Tastatur-Support
+document.addEventListener('keydown', function(e) {
+    // Wenn ein Eingabefeld (außer unser Display) fokussiert ist, abbrechen
+    if (document.activeElement && document.activeElement.tagName === 'INPUT' && document.activeElement.id !== 'display') return;
+
+    const allowed = '0123456789.+-*/()%^';
+    if (allowed.includes(e.key)) {
+        appendToDisplay(e.key);
+        highlightButton(e.key);
+    } else if (e.key === 'Enter' || e.key === '=') {
+        e.preventDefault();
+        calculate();
+        highlightButton('=');
+    } else if (e.key === 'Backspace') {
+        deleteLast();
+        highlightButton('DEL');
+    } else if (e.key === 'Delete') {
+        clearDisplay();
+        highlightButton('C');
+    }
+});
+
+// Optional: Button-Highlight für besseres Feedback
+function highlightButton(key) {
+    let btn = null;
+    if (key === 'Enter' || key === '=') btn = document.querySelector('.calculate');
+    else if (key === 'Backspace' || key === 'DEL') btn = document.querySelector('.delete');
+    else if (key === 'Delete' || key === 'C') btn = document.querySelector('.clear');
+    else if (key === '+') btn = Array.from(document.querySelectorAll('.buttons button')).find(b => b.textContent.trim() === '+');
+    else if (key === '-') btn = Array.from(document.querySelectorAll('.buttons button')).find(b => b.textContent.trim() === '−');
+    else if (key === '*') btn = Array.from(document.querySelectorAll('.buttons button')).find(b => b.textContent.trim() === '×');
+    else if (key === '/') btn = Array.from(document.querySelectorAll('.buttons button')).find(b => b.textContent.trim() === '÷');
+    else btn = Array.from(document.querySelectorAll('.buttons button')).find(b => b.textContent.trim() === key);
+
+    if (btn) {
+        btn.classList.add('active-key');
+        setTimeout(() => btn.classList.remove('active-key'), 120);
+    }
+}
+
+if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/service-worker.js')
             .then(reg => console.log('Service Worker registriert', reg))
