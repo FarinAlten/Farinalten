@@ -182,12 +182,15 @@ nav {
 .Box .gallery-img {
     width: 100%;
     height: 170px;
-    object-fit: cover;
+    aspect-ratio: 16 / 9; /* Seitenverhältnis, z.B. 16:9 */
+    object-fit: contain;   /* Bild immer ganz anzeigen, ggf. mit Rand */
     border-top-left-radius: 28px;
     border-top-right-radius: 28px;
     background: #e0e0e0;
     display: block;
     margin-bottom: 12px;
+    /* Optional: Bild mittig ausrichten */
+    object-position: center center;
 }
 
 .Box .title {
@@ -562,5 +565,99 @@ button.clear {
         right: 0;
         border-radius: 0;
         margin-bottom: 0;
+    }
+}
+
+/* --- Projekte: Bild links, Text rechts --- */
+.project-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.project-box {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    background: linear-gradient(120deg, #fff 80%, #f0f4fa 100%);
+    color: #222;
+    border: none;
+    border-radius: 28px;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.13);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.18s, box-shadow 0.18s;
+    min-height: 200px;
+    margin: 0;
+    padding: 0;
+}
+
+.project-box:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 20px 56px rgba(0,0,0,0.18);
+}
+
+.project-box .gallery-img {
+    width: 240px;
+    min-width: 180px;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    border-top-left-radius: 28px;
+    border-bottom-left-radius: 28px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background: #e0e0e0;
+    display: block;
+    margin: 0;
+    object-position: center center;
+}
+
+.project-box-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 1 0;
+    padding: 32px 32px 32px 32px;
+}
+
+.project-box .title {
+    margin: 0 0 14px 0;
+    font-size: 1.45em;
+    font-weight: 700;
+    color: #222;
+    text-align: left;
+    line-height: 1.3;
+}
+
+.project-box .subtitle {
+    margin: 0;
+    font-size: 1.12em;
+    color: #333;
+    text-align: left;
+    line-height: 1.6;
+}
+
+/* Responsive: Unter 700px wieder untereinander */
+@media (max-width: 700px) {
+    .project-gallery {
+        gap: 24px;
+    }
+    .project-box {
+        flex-direction: column;
+        min-height: unset;
+    }
+    .project-box .gallery-img {
+        width: 100%;
+        max-width: 100%;
+        height: 170px;
+        aspect-ratio: 16 / 9;
+        border-radius: 28px 28px 0 0;
+    }
+    .project-box-content {
+        padding: 24px 18px 24px 18px;
     }
 }
