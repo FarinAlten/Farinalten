@@ -775,7 +775,7 @@ button:nth-child(18) { grid-area: dot; }
     max-width: 160px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 20%;
+    border-radius: 12px;
     /* Icon-Hintergrund leicht ins Blaue gezogen, passend zu Links/Legal */
     background: linear-gradient(135deg,#ffffff,#eef7ff);
     display: block;

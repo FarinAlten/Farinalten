@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legal Info - FarinAlten</title>
     <link href="../css/style.css" rel="stylesheet">
-    		<link rel="icon" href="../fav-icon.png" type="image/x-icon">
-		<link rel="shortcut icon" href="../fav-icon.png" type="image/x-icon">
+    <link rel="icon" href="../fav-icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../fav-icon.png" type="image/x-icon">
 </head>
 <body>
     <nav>
@@ -21,7 +21,7 @@
                 <a class="nav-link" href="../websites/projects.html">Projects</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="../websites/contact.html">Contact</a>
+                <a class="nav-link" href="../websites/contact.html">Contact</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../websites/blog.html">Blog</a>
@@ -29,42 +29,53 @@
             <li class="nav-item">
                 <a class="nav-link active" href="../websites/legal.html">Legal Info</a>
             </li>
-           </ul>
-</nav>
-<div class="content">
-			<div class="headerbox">
-        		<a class="title">Legal Information</a>
-    	    </div>
-		  <div class="Box" onclick="window.location.href ='mailto:Altenfa@gmx.de'">
-        <h3 class="title">E-Mail</h3>
-        <p class="subtitle">Altenfa@gmx.de</p>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="headerbox">
+            <a class="title">Legal Information</a>
+            <p class="headersubtitle">Contact and legal details about this site.</p>
+        </div>
+
+        <!-- Gallery-style layout (ganz wie Home/Projects) -->
+        <div class="gallery" role="list">
+            <div class="Box" role="listitem" onclick="window.location.href='mailto:Altenfa@gmx.de'">
+                <h3 class="title">E‑Mail</h3>
+                <p class="subtitle">Altenfa@gmx.de — click to open your mail client.</p>
+            </div>
+
+            <div class="Box" role="listitem">
+                <h3 class="title">Content License</h3>
+                <p class="subtitle">Content on this site is created by Farin Altenhöner. Third‑party software and resources are credited where applicable; licenses are provided when available.</p>
+            </div>
+
+            <div class="Box" role="listitem">
+                <h3 class="title">Copyright</h3>
+                <p class="subtitle">Content owned by me is protected by copyright. For code and contributions see my GitHub profile.</p>
+            </div>
+
+            <div class="Box" role="listitem" onclick="window.location.href='https://github.com/FarinAlten'">
+                <h3 class="title">GitHub Account</h3>
+                <p class="subtitle">@altenfa — public repositories and source code.</p>
+            </div>
+        </div>
     </div>
-		<div class="Box">
-        <h3 class="title">Content Licens</h3>
-			 <p class="subtitle">The Content on this site is created by me (Farin Altenhöner). If I use some third-party software, I will quote the authors of the software. If availabel, I will provite a licens of the software.</p>
-        </div>
-        <div class="Box">
-        <h3 class="title">Content Copyright</h3>
-			 <p class="subtitle">The content, which is owend by me, is protected through the copyright. If you would like to have the code, you can look at my Github profile (@altenfa)</p>
-        </div>
-        <div class="Box" onclick="window.location.href ='https://github.com/FarinAlten$0'">
-            <h3 class="title">Github Account</h3>
-            <p class="subtitle">@altenfa</p>
-        </div>
-</div>
-		<footer>
-			© 2025 Farin Altenhöner  <br> |
-			<a href="../websites/legal.html">Legal Info</a> | 
-			<a href="../websites/contact.html">Contact</a>
-		</footer>
-	</body>
+
+    <footer>
+        © 2025 Farin Altenhöner  <br> |
+        <a href="../websites/legal.html">Legal Info</a> |
+        <a href="../websites/contact.html">Contact</a>
+    </footer>
+
     <script>
-		document.addEventListener("DOMContentLoaded", () => {
-			const loader = document.getElementById("loader");
-			loader.classList.add("active");
-			setTimeout(() => {
-				loader.style.display = "none";
-			}, 1000);
-		});
-	</script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const loader = document.getElementById("loader");
+            if (loader) {
+                loader.classList.add("active");
+                setTimeout(() => { loader.style.display = "none"; }, 1000);
+            }
+        });
+    </script>
+</body>
 </html>
