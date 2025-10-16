@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../../../css/style.css" rel="stylesheet">
-    <title> Luno - FarinAlten</title>
-    		<link rel="icon" href="fav-icon.png" type="image/x-icon">
-		<link rel="shortcut icon" href="fav-icon.png" type="image/x-icon">
+    <title>Luno - FarinAlten</title>
+    <link rel="icon" href="../../../fav-icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../../fav-icon.png" type="image/x-icon">
 </head>
 <body>
     <nav>
@@ -18,60 +18,76 @@
                 <a class="nav-link" href="../../../home.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../websites/projects.html">Projects</a>
+                <a class="nav-link" href="../../projects.html">Projects</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="../websites/contact.html">Contact</a>
+                <a class="nav-link" href="../../contact.html">Contact</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../websites/blog.html">Blog</a>
+                <a class="nav-link" href="../../blog.html">Blog</a>
             </li>
-			<li class="nav-item">
-                <a class="nav-link active" href="../../projects/mac-apps/Luno.html">Luno</a>
+            <li class="nav-item">
+                <a class="nav-link active" href="./Luno.html">Luno</a>
             </li>
-           </ul>
-</nav>
-    	<div class="content">
-			<div class="headerbox">
-        		<a class="title">Luno - A powerfull Web browser for the iPad</a>
-				<p class="headersubtitle"><br>
-					A Web Browser for the iPad which makes the iPad to a real pro maschine</p>
-   			 </div>
-				<div class="Box">
-        			<h3 class="title">Features</h3>
-			 		<p class="subtitle">🏠 Individuelle Startseite mit Schnellzugriffen<br><br>
-                                        🔎 Adressleiste zum direkten Eingeben und Laden von URLs<br><br>
-                                        ↩️ Navigation (Vor / Zurück) wie in Safari<br><br>
-                                        ⭐ Favoriten-Verwaltung mit Seitenleiste<br><br>
-                                        🕓 Chronik (Verlauf) einsehbar und löschbar<br><br>
-                                        ⚙️ Modernes SwiftUI-Design, abgestimmt auf iPadOS<br><br>
-                                        🧩 WebKit-Integration für native Performance<br><br>
-						</p>
-    			</div>
-                <div class="Box" onclick="window.location.href ='https://github.com/FarinAlten/Luno'">
-        <h3 class="title">Luno Project on Github</h3>
-        <p class="subtitle">@FarinAlten<br><br>
-            <br>
-            <b>Note: You will be directed to 'Github.com'!</b>
-        </p>
-				
-		</div>
-		<footer>
-    			© 2025 Farin Altenhöner <br>| 
-			<a href="./websites/legal.html">Legal Info</a> | 
-			<a href="./websites/contact.html">Contact</a> |
-			<a href="./websites/changelog.html">Changelog</a> |
-			<a href="./websites/settings.html">Settings</a> |
-		</footer>
-		</footer>
-	</body>
+        </ul>
+    </nav>
+    <div class="content">
+	<div class="headerbox">
+        		<a class="title">Luno — Overview</a>
+				<p class="headersubtitle"><br>Fast WebKit-based browser optimized for iPad. Custom start page, favorites sidebar, navigation (back/forward), and history sync-ready.
+                </p></p>
+    	</div>
+    <div class="project-box" onclick="window.location.href ='../websites/projects/mac-Apps/Luno.html'">
+                <img class="gallery-img" src="../pictures/logo-header-luno.png" alt="Luno Icon" />
+                <div class="project-box-content">
+                    <h3 class="title">Luno - Web Browser</h3>
+                    <p class="subtitle">
+                        A powerful web browser for iPad.<br><br>
+                        Modern, fast and easy to use.
+                    </p>
+                </div>
+            </div>
+
+        <!-- Gallery layout: reuse .gallery / .Box styling for consistency -->
+        <div class="gallery">
+            <div class="Box">
+                <h3 class="title">Features</h3>
+                <p class="subtitle">
+                    • Custom start page with quick-access tiles<br><br>
+                    • Address bar for direct URL input and search<br><br>
+                    • Back / Forward navigation like Safari<br><br>
+                    • Favorites management and sidebar<br><br>
+                    • View & clear history<br><br>
+                    • SwiftUI front-end design for native feel<br><br>
+                    • WebKit integration for native performance
+                </p>
+            </div>
+
+            <div class="Box" onclick="window.open('https://github.com/FarinAlten/Luno', '_blank')">
+                <h3 class="title">Source & Download</h3>
+                <p class="subtitle">
+                    Open source on GitHub — click to visit the repository for source code, releases and build instructions. Note: external link.
+                </p>
+            </div>
+        </div>
+    </div>
+    </body>
+
+    <footer>
+        © 2025 Farin Altenhöner  <br> |
+        <a href="../../websites/legal.html">Legal Info</a> |
+        <a href="../../websites/contact.html">Contact</a> |
+        <a href="../../websites/changelog.html">Changelog</a>
+    </footer>
+
     <script>
-		document.addEventListener("DOMContentLoaded", () => {
-			const loader = document.getElementById("loader");
-			loader.classList.add("active");
-			setTimeout(() => {
-				loader.style.display = "none";
-			}, 1000);
-		});
-	</script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const loader = document.getElementById("loader");
+            if (loader) {
+                loader.classList.add("active");
+                setTimeout(() => { loader.style.display = "none"; }, 1000);
+            }
+        });
+    </script>
+</body>
 </html>

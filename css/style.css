@@ -858,3 +858,54 @@ button:nth-child(18) { grid-area: dot; }
 [data-theme="dark"] .project-box .subtitle {
     color: #cfd8dc !important;
 }
+
+/* Headerbox: Logo links, Text rechts (Gallery-ähnlich) */
+.headerbox-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.header-logo {
+    width: 96px;
+    height: 96px;
+    min-width: 72px;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    background: linear-gradient(135deg, #fff, #f0f4fa);
+    flex-shrink: 0;
+}
+
+.headerbox-content .title {
+    margin: 0 0 6px 0;
+    font-size: 1.6em;
+    font-weight: 800;
+    color: #222;
+}
+
+.headerbox-content .headersubtitle {
+    margin: 0;
+    color: #444;
+    line-height: 1.5;
+}
+
+/* Mobile: Logo über dem Text (wie vorher) */
+@media (max-width: 700px) {
+    .headerbox-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+    .header-logo {
+        width: 170px;
+        height: 170px;
+        border-radius: 28px;
+    }
+    .headerbox-content .title {
+        font-size: 1.4em;
+    }
+}
+
+#display { /* falls #display doppelt definiert werden soll, bleibt unverändert */ }
